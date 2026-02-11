@@ -137,3 +137,7 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local reference frontend (do not track)
+frontend_for_reference/
+frontend_old

@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brand-ink: #1b1f2a;
+  --brand-slate: #4b5565;
+  --brand-accent: #0f766e;
+  --brand-accent-strong: #0b5c55;
+  --brand-sand: #f4efe8;
+  --brand-sky: #e8f1f4;
+  --danger: #b02020;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(160deg, var(--brand-sand), var(--brand-sky));
+  color: var(--brand-ink);
+  min-height: 100vh;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--brand-accent);
+  color: white;
+  box-shadow: 0 10px 20px rgba(15, 118, 110, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-accent-strong);
+  transform: translateY(-1px);
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--brand-slate);
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d6dadd;
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
+}
+
+.input-error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(176, 32, 32, 0.16);
+}
+
+.alert {
+  padding: 12px 18px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.alert-error {
+  background-color: #fce8e8;
+  color: var(--danger);
+  border: 1px solid #f5bcbc;
+}
+
+.spinner {
+  border: 3px solid #e7eaec;
+  border-top: 3px solid var(--brand-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
