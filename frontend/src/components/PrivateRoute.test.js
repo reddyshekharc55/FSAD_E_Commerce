@@ -11,7 +11,7 @@ jest.mock('../context/AuthContext', () => ({
 test('shows loader when auth is initializing', () => {
   useAuth.mockReturnValue({ isAuthenticated: false, loading: true });
 
-  const { container } = render(
+  render(
     <MemoryRouter>
       <PrivateRoute>
         <div>Protected</div>
@@ -19,7 +19,7 @@ test('shows loader when auth is initializing', () => {
     </MemoryRouter>
   );
 
-  expect(container.querySelector('.spinner')).toBeInTheDocument();
+  expect(screen.getByRole('status', { name: /loading/i })).toBeInTheDocument();
 });
 
 test('redirects unauthenticated users to login', () => {

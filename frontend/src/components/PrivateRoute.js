@@ -13,7 +13,7 @@ const PrivateRoute = ({ children }) => {
         alignItems: 'center',
         minHeight: '100vh'
       }}>
-        <div className="spinner"></div>
+        <div className="spinner" role="status" aria-label="Loading"></div>
       </div>
     );
   }
