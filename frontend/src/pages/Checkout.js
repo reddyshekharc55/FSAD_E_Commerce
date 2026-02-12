@@ -42,39 +42,34 @@ const Checkout = () => {
     window.scrollTo(0, 0); // Scroll to top when moving to payment step
   };
 
-  const handleBackToCart = () => {
-    setCurrentStep(1);
-    setError(null);
-    window.scrollTo(0, 0);
-  };
-
-  const handleBackToShipping = () => {
-    setCurrentStep(2);
-    setError(null);
-  };
-
   const handlePaymentSubmit = async (paymentData) => {
     setIsProcessing(true);
     setError(null);
 
     try {
-      // Step 1: Process payment
-      const paymentResponse = await paymentAPI.processPayment({
-        amount: totals.total,
-        paymentMethod: paymentData.paymentMethod,
-        cardDetails: {
-          cardNumber: paymentData.cardNumber,
-          cardholderName: paymentData.cardholderName,
-          expiryDate: paymentData.expiryDate,
-          cvv: paymentData.cvv
+      let transactionId = null;
+
+      // Step 1: Process payment (skip for COD)
+      if (paymentData.paymentMethod !== 'Cash on Delivery') {
+        const paymentResponse = await paymentAPI.processPayment({
+          amount: totals.total,
+          paymentMethod: paymentData.paymentMethod,
+          cardDetails: {
+            cardNumber: paymentData.cardNumber,
+            cardholderName: paymentData.cardholderName,
+            expiryDate: paymentData.expiryDate,
+            cvv: paymentData.cvv
+          },
+          upiId: paymentData.upiId,
+          bankName: paymentData.bankName
+        });
+
+        if (!paymentResponse.data.success) {
+          throw new Error(paymentResponse.data.message || 'Payment failed');
         }
-      });
 
-      if (!paymentResponse.data.success) {
-        throw new Error(paymentResponse.data.message || 'Payment failed');
+        transactionId = paymentResponse.data.transactionId;
       }
-
-      const { transactionId } = paymentResponse.data;
 
       // Step 2: Create order
       // Transform shipping data to match backend expectations
@@ -132,19 +127,27 @@ const Checkout = () => {
 
     return (
       <div className="checkout-steps">
-        {steps.map((step) => (
-          <div 
-            key={step.number}
-            className={`checkout-step ${currentStep === step.number ? 'active' : ''} ${currentStep > step.number ? 'completed' : ''}`}
-          >
-            <div className="checkout-step-inner">
-              <div className="checkout-step-number">
-                {currentStep > step.number ? '✓' : step.number}
+        {steps.map((step) => {
+          const isClickable = step.number < currentStep;
+          const isActive = currentStep === step.number;
+          const isCompleted = currentStep > step.number;
+          
+          return (
+            <div 
+              key={step.number}
+              className={`checkout-step ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''} ${isClickable ? 'clickable' : ''}`}
+              onClick={() => isClickable && setCurrentStep(step.number)}
+              style={{ cursor: isClickable ? 'pointer' : 'default' }}
+            >
+              <div className="checkout-step-inner">
+                <div className="checkout-step-number">
+                  {isCompleted ? '✓' : step.number}
+                </div>
+                <div className="checkout-step-label">{step.label}</div>
               </div>
-              <div className="checkout-step-label">{step.label}</div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   };
@@ -157,7 +160,10 @@ const Checkout = () => {
     <div className="checkout-container">
       <div className="checkout-header">
         <button onClick={() => navigate('/dashboard')} className="btn-back-to-shop">
-          ← Back to Shopping
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Shopping
         </button>
         <h1 className="checkout-title">Checkout</h1>
       </div>
@@ -189,7 +195,7 @@ const Checkout = () => {
                     />
                     <div className="cart-review-item-details">
                       <h3>{item.name}</h3>
-                      <p className="item-price">${Number(item.price).toFixed(2)} each</p>
+                      <p className="item-price">₹{Number(item.price).toFixed(2)} each</p>
                       {item.quantity >= item.stock && (
                         <span className="stock-warning">Max stock reached</span>
                       )}
@@ -213,7 +219,7 @@ const Checkout = () => {
                       </button>
                     </div>
                     <div className="cart-review-item-total">
-                      ${(Number(item.price) * item.quantity).toFixed(2)}
+                      ₹{(Number(item.price) * item.quantity).toFixed(2)}
                     </div>
                     <button
                       className="btn-remove-item"
@@ -234,7 +240,6 @@ const Checkout = () => {
           {currentStep === 2 && (
             <ShippingForm 
               onSubmit={handleShippingSubmit}
-              onBack={handleBackToCart}
               initialData={shippingData || {}}
             />
           )}
@@ -242,7 +247,6 @@ const Checkout = () => {
           {currentStep === 3 && (
             <PaymentForm 
               onSubmit={handlePaymentSubmit}
-              onBack={handleBackToShipping}
               amount={totals.total}
             />
           )}

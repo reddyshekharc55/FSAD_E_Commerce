@@ -1,19 +1,17 @@
 /* Order Confirmation Page - Compact No-Scroll Design */
 .order-confirmation-container {
-  min-height: 100vh;
-  max-height: 100vh;
-  padding: 1rem;
+  min-height: calc(100vh - 87px);
+  padding: 2rem 1rem;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .confirmation-card {
   max-width: 1200px;
   width: 100%;
-  max-height: 95vh;
+  max-height: none;
   padding: 1.5rem;
   background: white;
   border-radius: 16px;
@@ -116,7 +114,7 @@
   background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
   border-radius: 12px;
   padding: 1.25rem;
-  border: 1px solid rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(160, 174, 255, 0.35);
   height: fit-content;
 }
 
@@ -172,6 +170,11 @@
 .status-badge.success {
   background: #e8f5e9;
   color: #2e7d32;
+}
+
+.status-badge.pending {
+  background: #fff3e0;
+  color: #e65100;
 }
 
 .shipping-compact {
@@ -240,26 +243,26 @@
   flex-direction: column;
   gap: 0.75rem;
   overflow-y: auto;
-  max-height: calc(95vh - 200px);
+  max-height: 450px;
   padding-right: 0.5rem;
 }
 
 .order-items-list::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .order-items-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f5f9;
   border-radius: 10px;
 }
 
 .order-items-list::-webkit-scrollbar-thumb {
-  background: #667eea;
+  background: #cbd5e1;
   border-radius: 10px;
 }
 
 .order-items-list::-webkit-scrollbar-thumb:hover {
-  background: #5568d3;
+  background: #94a3b8;
 }
 
 .order-item {
@@ -315,40 +318,50 @@
   gap: 1rem;
   margin-top: auto;
   flex-shrink: 0;
+  justify-content: flex-end;
 }
 
 .btn-continue-shopping,
 .btn-print-receipt {
-  flex: 1;
-  padding: 0.85rem 1.5rem;
-  border: none;
-  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  border-radius: 10px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .btn-continue-shopping {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7b8ef5 0%, #8b6fb8 100%);
   color: white;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(123, 142, 245, 0.25);
 }
 
 .btn-continue-shopping:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #6a7de5 0%, #7a5fa8 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(106, 125, 229, 0.35);
 }
 
 .btn-print-receipt {
   background-color: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #7b8ef5;
+  border-color: #a0aeff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn-print-receipt:hover {
-  background-color: #667eea;
+  background-color: #7b8ef5;
   color: white;
-  transform: translateY(-2px);
+  border-color: #7b8ef5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(123, 142, 245, 0.25);
 }
 
 /* Animations */
@@ -419,5 +432,11 @@
   
   .confirmation-actions {
     flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-continue-shopping,
+  .btn-print-receipt {
+    width: 100%;
   }
 }

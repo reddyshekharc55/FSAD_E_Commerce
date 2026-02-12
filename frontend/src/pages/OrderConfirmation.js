@@ -54,7 +54,9 @@ const OrderConfirmation = () => {
             <h3>Order Summary</h3>
             <div className="order-detail-row">
               <span className="detail-label">Transaction ID:</span>
-              <span className="detail-value">{transactionId}</span>
+              <span className="detail-value">
+                {order.paymentMethod === 'Cash on Delivery' ? 'N/A - Pay on Delivery' : transactionId}
+              </span>
             </div>
 
             <div className="order-detail-row">
@@ -64,8 +66,8 @@ const OrderConfirmation = () => {
 
             <div className="order-detail-row">
               <span className="detail-label">Status:</span>
-              <span className="detail-value status-badge success">
-                {order.paymentStatus || 'Completed'}
+              <span className={`detail-value status-badge ${order.paymentMethod === 'Cash on Delivery' ? 'pending' : 'success'}`}>
+                {order.paymentMethod === 'Cash on Delivery' ? 'Pending - Pay on Delivery' : (order.paymentStatus || 'Completed')}
               </span>
             </div>
 
@@ -74,7 +76,7 @@ const OrderConfirmation = () => {
             <div className="order-detail-row total-row">
               <span className="detail-label">Total Amount:</span>
               <span className="detail-value total-amount">
-                ${Number(order.totalAmount).toFixed(2)}
+                ₹{Number(order.totalAmount).toFixed(2)}
               </span>
             </div>
             
@@ -102,10 +104,10 @@ const OrderConfirmation = () => {
                     )}
                     <div className="order-item-details">
                       <h4>{item.product?.name || 'Product'}</h4>
-                      <p>Qty: {item.quantity} × ${Number(item.price).toFixed(2)}</p>
+                      <p>Qty: {item.quantity} × ₹{Number(item.price).toFixed(2)}</p>
                     </div>
                     <div className="order-item-total">
-                      ${(Number(item.price) * item.quantity).toFixed(2)}
+                      ₹{(Number(item.price) * item.quantity).toFixed(2)}
                     </div>
                   </div>
                 ))}

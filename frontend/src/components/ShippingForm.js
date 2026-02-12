@@ -215,11 +215,6 @@ const ShippingForm = ({ onSubmit, onBack, initialData = {} }) => {
       </div>
 
       <div className="form-actions">
-        {onBack && (
-          <button type="button" onClick={onBack} className="btn-back">
-            ← Back to Cart
-          </button>
-        )}
         <button type="submit" className="btn-continue">
           Continue to Payment
         </button>

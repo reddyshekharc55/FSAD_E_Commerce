@@ -75,7 +75,7 @@ const ProductCard = ({ product }) => {
           {renderStars(product.rating || 0)}
           <span className="rating-value">({Number(product.rating || 0).toFixed(1)})</span>
         </div>
-        <div className="product-price">${Number(product.price || 0).toFixed(2)}</div>
+        <div className="product-price">₹{Number(product.price || 0).toFixed(2)}</div>
         <div className="product-card-actions">
           <button 
             className="btn-view-details"

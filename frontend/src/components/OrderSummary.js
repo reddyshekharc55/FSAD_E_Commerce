@@ -21,7 +21,7 @@ const OrderSummary = ({ cartItems, totals, isProcessing = false }) => {
               <p className="order-summary-item-qty">Qty: {item.quantity}</p>
             </div>
             <div className="order-summary-item-price">
-              ${(Number(item.price) * item.quantity).toFixed(2)}
+              ₹{(Number(item.price) * item.quantity).toFixed(2)}
             </div>
           </div>
         ))}
@@ -32,16 +32,16 @@ const OrderSummary = ({ cartItems, totals, isProcessing = false }) => {
       <div className="order-summary-totals">
         <div className="order-summary-row">
           <span>Subtotal ({itemCount} items)</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>₹{subtotal.toFixed(2)}</span>
         </div>
         <div className="order-summary-row">
           <span>Tax (18%)</span>
-          <span>${tax.toFixed(2)}</span>
+          <span>₹{tax.toFixed(2)}</span>
         </div>
         <div className="order-summary-divider"></div>
         <div className="order-summary-row order-summary-total">
           <span>Total</span>
-          <span>${total.toFixed(2)}</span>
+          <span>₹{total.toFixed(2)}</span>
         </div>
       </div>
 

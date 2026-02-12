@@ -127,7 +127,10 @@ const ProductDetail = () => {
   return (
     <div className="product-detail-container">
       <button onClick={() => navigate('/dashboard')} className="btn-back-link">
-        ‹ Back to Products
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Products
       </button>
 
       <div className="product-detail-content">
@@ -166,10 +169,10 @@ const ProductDetail = () => {
           </div>
 
           <div className="product-price-section">
-            <span className="price">${Number(product.price || 0).toFixed(2)}</span>
+            <span className="price">₹{Number(product.price || 0).toFixed(2)}</span>
             {product.originalPrice && Number(product.originalPrice) > Number(product.price) && (
               <>
-                <span className="original-price">${Number(product.originalPrice).toFixed(2)}</span>
+                <span className="original-price">₹{Number(product.originalPrice).toFixed(2)}</span>
                 <span className="discount">
                   {Math.round(((Number(product.originalPrice) - Number(product.price)) / Number(product.originalPrice)) * 100)}% OFF
                 </span>
@@ -275,7 +278,7 @@ const ProductDetail = () => {
               >
                 <img src={relatedProduct.image} alt={relatedProduct.name} />
                 <h4>{relatedProduct.name}</h4>
-                <p className="related-price">${Number(relatedProduct.price || 0).toFixed(2)}</p>
+                <p className="related-price">₹{Number(relatedProduct.price || 0).toFixed(2)}</p>
               </div>
             ))}
           </div>
