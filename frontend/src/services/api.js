@@ -40,4 +40,10 @@ export const authAPI = {
   getProfile: () => api.get('/auth/me')
 };
 
+export const productAPI = {
+  getProducts: (params) => api.get('/products', { params }),
+  getProductById: (id) => api.get(`/products/${id}`),
+  getCategories: () => api.get('/products/categories/list')
+};
+
 export default api;
