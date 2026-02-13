@@ -104,7 +104,7 @@
 }
 
 .btn-browse-products {
-  background-color: #3498db;
+  background-color: var(--brand-primary);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -116,7 +116,7 @@
 }
 
 .btn-browse-products:hover {
-  background-color: #2980b9;
+  background-color: var(--brand-primary-strong);
 }
 
 /* Cart Items List */
@@ -183,7 +183,7 @@
 .cart-item-price {
   margin: 0;
   font-size: 1rem;
-  color: #667eea;
+  color: var(--brand-primary);
   font-weight: 700;
 }
 
@@ -226,7 +226,7 @@
 }
 
 .quantity-btn:hover:not(:disabled) {
-  background-color: #667eea;
+  background-color: var(--brand-primary);
   color: white;
 }
 
@@ -340,7 +340,7 @@ input[type="number"] {
 
 .btn-checkout {
   width: 100%;
-  background-color: #27ae60;
+  background-color: var(--brand-primary);
   color: white;
   border: none;
   padding: 14px 24px;
@@ -352,7 +352,7 @@ input[type="number"] {
 }
 
 .btn-checkout:hover {
-  background-color: #219a52;
+  background-color: var(--brand-primary-strong);
 }
 
 /* Responsive Styles */

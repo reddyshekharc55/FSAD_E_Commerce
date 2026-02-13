@@ -77,7 +77,7 @@
 .product-name {
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: var(--brand-ink);
   margin: 0 0 0.5rem 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -126,14 +126,14 @@
 
 .rating-value {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--brand-slate);
 }
 
 /* Price */
 .product-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: var(--brand-primary);
   margin-bottom: 1rem;
 }
 
@@ -147,9 +147,9 @@
 .btn-view-details {
   flex: 1;
   padding: 0.75rem;
-  background-color: #667eea;
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.85rem;
@@ -163,7 +163,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e67e22;
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -176,26 +176,29 @@
 }
 
 .btn-add-to-cart-small:hover:not(:disabled) {
-  background-color: #d35400;
+  background: linear-gradient(135deg, var(--brand-primary-strong) 0%, var(--brand-primary) 100%);
   transform: translateY(-2px);
 }
 
 .btn-add-to-cart-small:disabled {
-  background-color: #999;
+  background-color: #9aa3b2;
   cursor: not-allowed;
 }
 
 .btn-add-to-cart-small.added {
-  background-color: #27ae60;
+  background-color: #0f766e;
 }
 
 .btn-view-details:hover {
-  background-color: #5568d3;
+  background-color: var(--brand-primary);
+  color: white;
   transform: translateY(-2px);
 }
 
 .product-card.out-of-stock .btn-view-details {
-  background-color: #999;
+  background-color: #9aa3b2;
+  border-color: transparent;
+  color: white;
   cursor: not-allowed;
 }
 
