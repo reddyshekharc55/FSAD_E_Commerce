@@ -337,31 +337,31 @@
 }
 
 .btn-continue-shopping {
-  background: linear-gradient(135deg, #7b8ef5 0%, #8b6fb8 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   color: white;
   border-color: transparent;
-  box-shadow: 0 2px 8px rgba(123, 142, 245, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 78, 153, 0.25);
 }
 
 .btn-continue-shopping:hover {
-  background: linear-gradient(135deg, #6a7de5 0%, #7a5fa8 100%);
+  background: linear-gradient(135deg, var(--brand-primary-strong) 0%, var(--brand-primary) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(106, 125, 229, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 78, 153, 0.35);
 }
 
 .btn-print-receipt {
   background-color: white;
-  color: #7b8ef5;
-  border-color: #a0aeff;
+  color: var(--brand-primary);
+  border-color: rgba(0, 78, 153, 0.35);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn-print-receipt:hover {
-  background-color: #7b8ef5;
+  background-color: var(--brand-primary);
   color: white;
-  border-color: #7b8ef5;
+  border-color: var(--brand-primary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(123, 142, 245, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 78, 153, 0.25);
 }
 
 /* Animations */

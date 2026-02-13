@@ -1,10 +1,10 @@
 /* Professional Header Design */
 .dashboard-header {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: linear-gradient(135deg, var(--brand-deep-1) 0%, var(--brand-deep-2) 45%, var(--brand-deep-3) 100%);
   color: white;
   padding: 1rem 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-bottom: 3px solid #3b82f6;
+  border-bottom: 3px solid var(--brand-primary);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -36,12 +36,12 @@
 .logo-icon {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 78, 153, 0.35);
 }
 
 .logo-icon svg {
@@ -81,8 +81,8 @@
 
 .user-menu-trigger {
   padding: 0.6rem 1.25rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(0, 78, 153, 0.35);
   color: white;
   border-radius: 12px;
   cursor: pointer;
@@ -95,23 +95,23 @@
 }
 
 .user-menu-trigger:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(24, 22, 78, 0.65) 0%, rgba(53, 33, 131, 0.75) 100%);
+  border-color: var(--brand-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(24, 22, 78, 0.25);
 }
 
 .user-avatar {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.75rem;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 78, 153, 0.35);
 }
 
 .user-name-text {
@@ -166,14 +166,14 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1.25rem;
   color: white;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 78, 153, 0.3);
 }
 
 .dropdown-user-info {
@@ -223,8 +223,8 @@
 }
 
 .user-menu-item:hover {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: rgba(0, 78, 153, 0.1);
+  color: var(--brand-primary);
 }
 
 .user-menu-item svg {
@@ -272,17 +272,17 @@
 }
 
 .header-link.active {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  border-color: #3b82f6;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 12px rgba(0, 78, 153, 0.35);
 }
 
 /* Cart Button */
 .cart-button {
   position: relative;
   padding: 0.6rem 1.25rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(0, 78, 153, 0.35);
   color: white;
   border-radius: 12px;
   cursor: pointer;
@@ -294,10 +294,10 @@
 }
 
 .cart-button:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(24, 22, 78, 0.65) 0%, rgba(53, 33, 131, 0.75) 100%);
+  border-color: var(--brand-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(24, 22, 78, 0.25);
 }
 
 .cart-button svg {
@@ -309,7 +309,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  background: linear-gradient(135deg, var(--brand-success) 0%, var(--brand-success-soft) 100%);
   color: white;
   border-radius: 50%;
   width: 22px;
@@ -319,8 +319,8 @@
   justify-content: center;
   font-size: 0.7rem;
   font-weight: 700;
-  border: 2px solid #1e293b;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5);
+  border: 2px solid var(--brand-deep-1);
+  box-shadow: 0 2px 8px rgba(31, 143, 90, 0.45);
   animation: pulse 2s infinite;
 }
 
@@ -346,7 +346,7 @@
 
 .btn-logout:hover {
   background-color: white;
-  color: #667eea;
+  color: var(--brand-primary);
 }
 
 @media (max-width: 768px) {

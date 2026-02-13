@@ -25,7 +25,7 @@
 
 .payment-amount strong {
   font-size: 1.5rem;
-  color: #667eea;
+  color: var(--brand-primary);
 }
 
 .form-actions {
@@ -63,7 +63,7 @@
 
 .btn-place-order {
   padding: 0.875rem 2.5rem;
-  background: linear-gradient(135deg, #7b8ef5 0%, #8b6fb8 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-soft) 100%);
   color: white;
   border: 2px solid transparent;
   border-radius: 10px;
@@ -71,7 +71,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(123, 142, 245, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 78, 153, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,9 +79,9 @@
 }
 
 .btn-place-order:hover {
-  background: linear-gradient(135deg, #6a7de5 0%, #7a5fa8 100%);
+  background: linear-gradient(135deg, var(--brand-primary-strong) 0%, var(--brand-primary) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(106, 125, 229, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 78, 153, 0.35);
 }
 
 /* Helper Text */
@@ -124,8 +124,8 @@
 
 .payment-select-button:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(0, 78, 153, 0.12), 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .payment-method-icon {
@@ -186,7 +186,7 @@
 }
 
 .payment-dropdown-item.active {
-  background: #667eea;
+  background: var(--brand-primary);
   color: white;
 }
 
@@ -231,8 +231,8 @@
 
 .bank-select-button:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(0, 78, 153, 0.12), 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bank-select-button.error {
@@ -286,7 +286,7 @@
 }
 
 .bank-dropdown-item.active {
-  background: #667eea;
+  background: var(--brand-primary);
   color: white;
 }
 

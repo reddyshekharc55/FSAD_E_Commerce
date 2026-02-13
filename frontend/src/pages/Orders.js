@@ -4,11 +4,11 @@ import { orderAPI } from '../services/api';
 import './Orders.css';
 
 const STATUS_COLORS = {
-  Pending: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-  Processing: 'linear-gradient(135deg, #7b8ef5 0%, #6366f1 100%)',
-  Shipped: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
-  Delivered: 'linear-gradient(135deg, #8b6fb8 0%, #7c3aed 100%)',
-  Cancelled: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'
+  Pending: 'linear-gradient(135deg, var(--brand-primary-strong) 0%, var(--brand-primary) 100%)',
+  Processing: 'linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary) 100%)',
+  Shipped: 'linear-gradient(135deg, var(--brand-primary-soft) 0%, var(--brand-primary) 100%)',
+  Delivered: 'linear-gradient(135deg, var(--brand-success) 0%, var(--brand-success-soft) 100%)',
+  Cancelled: 'linear-gradient(135deg, var(--danger) 0%, #dc2626 100%)'
 };
 
 const TIMELINE_STEPS = ['Pending', 'Processing', 'Shipped', 'Delivered'];
@@ -47,7 +47,7 @@ const Orders = () => {
     return `#ORD-${String(id).padStart(6, '0')}`;
   };
 
-  const getStatusColor = (status) => STATUS_COLORS[status] || 'linear-gradient(135deg, #94a3b8 0%, #64748b 100%)';
+  const getStatusColor = (status) => STATUS_COLORS[status] || 'linear-gradient(135deg, var(--brand-muted) 0%, var(--brand-muted-strong) 100%)';
 
   const getTimelineSteps = (status) => {
     if (status === 'Cancelled') {
